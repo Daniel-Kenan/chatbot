@@ -1,0 +1,52 @@
+{
+    "intents": [
+        {
+            "group": "greetings",
+            "patterns": ["Hi", "Hello", "Is anyone there", "Good day", "greetings"],
+            "responses": ["Hello!", "Hi there, how can I help you?"],
+            "context_set": ""
+        },
+        {
+            "group": "hours",
+            "patterns": ["When are guys open", "What are your hours", "hours of operation","when are you open"],
+            "responses": ["We are open Everyday"],
+            "context_set": ""
+        },
+        {
+            "group": "services",
+            "patterns": ["services offered","What services do you offer","what are the services", "Can you tell me more about the services your company provides","What kind of services can I expect from your company","Can you give me a list of your company's services","Can you give me a brief overview of your services","Can you walk me through the different services you offer"],
+            "responses": ["print services"],
+            "context_set": ""
+        },
+        {
+            "group": "name",
+            "patterns": ["What's your full name","Can you give me your name","What do I address you as","Hi! What's your name","May I have your name please","Hi there, what should I call you","Could you please tell me your name","What is your name"],
+            "responses": ["Berry!","Berry :-)","My name is Berry"],
+            "context_set": ""
+        },
+        {
+            "group": "management",
+            "patterns": ["who is the founder","who is the CEO","who is the chief executive offices","who started the bussiness" ],
+            "responses": ["Daniel Slinda","Mr Slinda is the founder and CEO"],
+            "context_set": ""
+        },
+        {
+            "group": "mission",
+            "patterns": ["what is the company mission"],
+            "responses": ["mission"],
+            "context_set": ""
+        },
+        {
+            "group": "goal",
+            "patterns": ["what is the company vision"],
+            "responses": ["mission"],
+            "context_set": ""
+        },{
+            "group": "web features",
+            "patterns": ["The feature we offer on the web"],
+            "responses": ["-Search engine optimization,\n-Digital Marketing,\n-Progressive web applications,\n-Analytics,\n-Responsive design"],
+            "context_set": ""
+        }
+
+    ]
+}
