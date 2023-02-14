@@ -8,7 +8,7 @@
         },
         {
             "group": "hours",
-            "patterns": ["When are guys open", "What are your hours", "hours of operation","when are you open"],
+            "patterns": ["When are guys open", "What are your hours", "hours of operation","when are you open","what time do you open"],
             "responses": ["We are open Everyday"],
             "context_set": ""
         },
@@ -21,7 +21,7 @@
         {
             "group": "name",
             "patterns": ["What's your full name","Can you give me your name","What do I address you as","Hi! What's your name","May I have your name please","Hi there, what should I call you","Could you please tell me your name","What is your name"],
-            "responses": ["Berry!","Berry :-)","My name is Berry"],
+            "responses": ["Luffy!","Luffy :-)","My name is Luffy"],
             "context_set": ""
         },
         {
@@ -45,6 +45,12 @@
             "group": "web features",
             "patterns": ["The feature we offer on the web"],
             "responses": ["-Search engine optimization,\n-Digital Marketing,\n-Progressive web applications,\n-Analytics,\n-Responsive design"],
+            "context_set": ""
+        }
+        {
+            "group": "web features",
+            "patterns": ["Can I speak to an agent","Transfer me to an agent","Transfer me to customer support","I need to talk to someone about [problem]. How can I do that?","I'm having trouble with [product/feature]. Can you assist me?","I'm not sure what to do next. How can I get some help?"],
+            "responses": ["AgentOnboarding"],
             "context_set": ""
         }
 
