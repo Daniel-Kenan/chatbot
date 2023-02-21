@@ -1,1 +1,2 @@
-python bot/shell.py
+@echo OFF
+python bot/shell.py --shell

@@ -1,58 +1,77 @@
 {
     "intents": [
-        {
-            "group": "greetings",
-            "patterns": ["Hi", "Hello", "Is anyone there", "Good day", "greetings"],
-            "responses": ["Hello!", "Hi there, how can I help you?"],
-            "context_set": ""
-        },
-        {
-            "group": "hours",
-            "patterns": ["When are guys open", "What are your hours", "hours of operation","when are you open","what time do you open"],
-            "responses": ["We are open Everyday"],
-            "context_set": ""
-        },
-        {
-            "group": "services",
-            "patterns": ["services offered","What services do you offer","what are the services", "Can you tell me more about the services your company provides","What kind of services can I expect from your company","Can you give me a list of your company's services","Can you give me a brief overview of your services","Can you walk me through the different services you offer"],
-            "responses": ["print services"],
-            "context_set": ""
-        },
-        {
-            "group": "name",
-            "patterns": ["What's your full name","Can you give me your name","What do I address you as","Hi! What's your name","May I have your name please","Hi there, what should I call you","Could you please tell me your name","What is your name"],
-            "responses": ["Luffy!","Luffy :-)","My name is Luffy"],
-            "context_set": ""
-        },
-        {
-            "group": "management",
-            "patterns": ["who is the founder","who is the CEO","who is the chief executive offices","who started the bussiness" ],
-            "responses": ["Daniel Slinda","Mr Slinda is the founder and CEO"],
-            "context_set": ""
-        },
-        {
-            "group": "mission",
-            "patterns": ["what is the company mission"],
-            "responses": ["mission"],
-            "context_set": ""
-        },
-        {
-            "group": "goal",
-            "patterns": ["what is the company vision"],
-            "responses": ["mission"],
-            "context_set": ""
-        },{
-            "group": "web features",
-            "patterns": ["The feature we offer on the web"],
-            "responses": ["-Search engine optimization,\n-Digital Marketing,\n-Progressive web applications,\n-Analytics,\n-Responsive design"],
-            "context_set": ""
-        }
-        {
-            "group": "web features",
-            "patterns": ["Can I speak to an agent","Transfer me to an agent","Transfer me to customer support","I need to talk to someone about [problem]. How can I do that?","I'm having trouble with [product/feature]. Can you assist me?","I'm not sure what to do next. How can I get some help?"],
-            "responses": ["AgentOnboarding"],
-            "context_set": ""
-        }
-
+      {
+        "group": "greeting",
+        "patterns": ["Hi", "Hello", "Hey there", "Good morning", "Good afternoon"],
+        "responses": ["Hi there! How can I assist you today?", "Hello! How may I help you?", "Hey! How can I be of service?"],
+        "context_set": ""
+      },
+      {
+        "group": "thanks",
+        "patterns": ["thank you", "thanks a lot", "much appreciated"],
+        "responses": ["You're welcome!", "My pleasure to help!", "Glad I could assist you!"],
+        "context_set": ""
+    },
+    {
+        "group": "name",
+        "patterns": ["what is your name?", "who are you?", "can you tell me your name?"],
+        "responses": ["My name is StrawberryBot. How can I assist you?", "I'm StrawberryBot, nice to meet you!", "I'm a chatbot named StrawberryBot. How can I help?"],
+        "context_set": ""
+    },
+      {
+        "group": "help",
+        "patterns": ["Can you help me?", "I need help", "What can you do for me?", "How does this work?"],
+        "responses": ["Sure, I'd be happy to help. What do you need assistance with?", "Of course! What can I do to help you?", "I'd be glad to help. What can I assist you with?"],
+        "context_set": ""
+      },
+      {
+        "group": "product_info",
+        "patterns": ["Tell me about your products", "What software do you offer?", "What kind of products do you have?"],
+        "responses": ["We offer a range of software solutions that can help you with various business needs. Can you tell me more about what you're looking for?"],
+        "context_set": ""
+      },
+      {
+        "group": "pricing",
+        "patterns": ["How much does your software cost?", "What is the pricing?", "Can you give me a quote?"],
+        "responses": ["Our pricing depends on the product and your specific needs. Please visit our website for more information, or contact our sales representative for a quote."],
+        "context_set": ""
+      },
+      {
+        "group": "contact_sales",
+        "patterns": ["I want to talk to a sales representative", "How can I contact your sales team?", "Can you connect me with a salesperson?"],
+        "responses": ["Absolutely! Our sales representative, Ntokozo Mabatha, would be happy to speak with you. You can reach Ntokozo by emailing sales@strawberrysoft.co.za or calling our office at +27 11 555 5555."],
+        "context_set": ""
+      },
+      {
+        "group": "technical_support",
+        "patterns": ["I'm having a technical issue", "Can you help me with a software problem?", "How do I get technical support?"],
+        "responses": ["I'm sorry to hear that you're having a technical issue. Please email our software engineer, Victor Mahluza, at support@strawberrysoft.co.za with a detailed description of the issue. Victor will get back to you as soon as possible."],
+        "context_set": ""
+      },
+      {
+        "group": "feedback",
+        "patterns": ["I have feedback for your company", "Can I give you feedback?", "How can I share my thoughts with you?"],
+        "responses": ["We welcome all feedback from our customers! Please email us at feedback@strawberrysoft.co.za with your thoughts, suggestions, or concerns. We value your input and will do our best to address your feedback."],
+        "context_set": ""
+      },
+      {
+        "group": "goodbye",
+        "patterns": ["Goodbye", "See you later", "Thanks for your help"],
+        "responses": ["You're welcome! If you have any more questions or concerns, don't hesitate to reach out. Goodbye for now!"],
+        "context_set": ""
+      },
+      {
+        "group": "mission",
+        "patterns": ["What is the company's mission?", "Can you tell me about the company's mission?", "What does the company aim to do?"],
+        "responses": ["Our mission is to create innovative software solutions that improve people's lives."],
+        "context_set": ""
+    },
+    {
+        "group": "vision",
+        "patterns": ["What is the company's vision?", "What does the company aspire to achieve?", "What is the long-term goal of the company?"],
+        "responses": ["Our vision is to become a leading software company in the industry by providing cutting-edge solutions to our clients."],
+        "context_set": ""
+    }
     ]
-}
+  }
+  

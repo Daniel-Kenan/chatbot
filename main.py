@@ -5,10 +5,6 @@ import time
 import json
 from socket import gethostname,gethostbyname
 
-# hostname = 
-# gethostbyname(hostname)
-# '172.18.224.1'
-
 _current_dir = os.path.dirname(os.path.realpath(__file__))
 _dir = os.path.join(_current_dir,"bot")
 sys.path.insert(1, _dir)

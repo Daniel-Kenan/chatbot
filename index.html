@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="chat-header">
+            <h1>Chat with Client</h1>
+        </div>
+        <div class="chat-body">
+        </div>
+        <div class="chat-footer" style="width:100%">
+            <form id="chat-form" style="width:100%">
+                <input type="text" style="padding:30px;width:90%" placeholder="Type your message..." id="msg">
+                <button >Send</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const chatForm = document.getElementById('chat-form');
+        const chatBody = document.getElementsByClassName('chat-body')[0];
+        const websocket = new WebSocket("ws://localhost:8765")
+       
+        websocket.onopen = (event) => {
+            room = "915371293"
+            websocket.send("agent")
+            websocket.send(room)
+        };
+        websocket.onmessage = (event) => {
+            chatBody.innerHTML += `
+          <div class="message received">
+            <p>${event.data}</p>
+          </div>`
+          chatBody.children[chatBody.children.length-1].scrollIntoView(true)
+        }
+        chatForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            let val = document.getElementById("msg").value
+            document.getElementById("msg").value =""
+            websocket.send(val)
+            chatBody.innerHTML += `
+          <div class="message sent">
+            <p>${val}</p>
+          </div>`
+          chatBody.children[chatBody.children.length-1].scrollIntoView(true)
+        })
+    </script>
+</body>
+
+</html>
