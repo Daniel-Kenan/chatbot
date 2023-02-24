@@ -1,43 +1,68 @@
-from _settings import *
-from main import assistant
-clients = []
-nicknames = []
-app = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-app.bind((settings["host"],settings["port"]))
-app.listen(settings["que"]) 
+import asyncio
+import websockets
+from httpserverbot import assistant
+# python -m websockets ws://localhost:8765
+from time import time
+PORT = 8765
 
-def broadcast(message):
-    for client in clients:
-        client.send(message)
+ALLOWED_HOSTS = [
+   "http://localhost:3000/",
+   "http://localhost:3000",
+   "localhost:3000",
+   "http://localhost:5500/",
+   "http://localhost:5500",
+   "localhost:5500",
+   "http://127.0.0.1:5500/",
+   "http://127.0.0.1:5500",
+   "127.0.0.1:5500"
+   ]
 
+agents = ["agent"]
+chatrooms = {}
 
-def handle(client):
-    while True:
-        try:
-            message = client.recv(settings["buffer_size"])
-            message = str(assistant.request(message)).encode(settings["encoding"])
-            broadcast(message)
-        except:
-            index = clients.index('client')
-            clients.remove(client)
-            client.close()
-            nickname = nicknames["index"]
-            nicknames.remove(nickname)
-            print(f'{nickname} has left the chat'.encode(settings["encoding"]))
-            break
+user = []
+admin = []
+async def handler(websocket, path):
+  fingerprint = await websocket.recv()
+  room = fingerprint
+  if room not in chatrooms and fingerprint not in agents:
+     chatrooms[room] = {} # create room
+     chatrooms[room]["dialogue"] = []
+     chatrooms[room]["time"] = time()
+     chatrooms[room]["user"] = websocket  # put the user in the room
 
-def receive():
-    while True:
-        client, address = app.accept()
-        print(f"Connected with {address}")
-        client.send("NICK".encode(settings["encoding"]))
-        nickname = client.recv(settings["buffer_size"]).decode(settings["encoding"])
-        nicknames.append(nickname)
-        clients.append(client)
-        broadcast(f'{nickname} has joined the chat'.encode(settings["encoding"]))
-        client.send("connected to the server".encode(settings["encoding"]))
-        thread = threading.Thread(target = handle,args=(client,))
-        thread.start()
+  elif fingerprint in agents:
+     room = await websocket.recv() # get the room where the agent needs to go 
+     print("agent room",room)
+     try:
+      chatrooms[room]["agent"] = websocket  # put the agent in the room 
+     except: 
+        chatrooms[room] = {}
+        chatrooms[room]["dialogue"] = []
+        chatrooms[room]["agent"] = websocket
 
-print(f'|> Server is listening on {settings["host"]}:{settings["port"]}')
-receive()
+  else:chatrooms[room]["user"] = websocket # else the user is returning in this room
+  while True:
+    conversation = chatrooms[room]["dialogue"]
+    try:
+        msg = await websocket.recv()
+        
+        if fingerprint in agents:
+           try:
+              await chatrooms[room]["user"].send(msg)
+              chatrooms[room]["dialogue"] += [[fingerprint,msg]]
+           except: await websocket.send("no user in this room")
+        else: 
+           try:
+              await chatrooms[room]["agent"].send(msg)
+              chatrooms[room]["dialogue"] += [[fingerprint,msg]] 
+           except: 
+              await websocket.send(assistant.request(msg))
+                                   
+    except websockets.ConnectionClosedOK : break
+  
+
+print(f"I am RUNNING ON PORT : {PORT}")
+start_server = websockets.serve(handler, "localhost", PORT,origins=ALLOWED_HOSTS)
+asyncio.get_event_loop().run_until_complete(start_server)
+asyncio.get_event_loop().run_forever()
