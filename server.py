@@ -5,7 +5,8 @@ from httpserverbot import assistant
 from time import time
 import os
 
-PORT = 8765
+try:os.environ["PORT"]
+except: PORT = 8765
 HOST = '0.0.0.0'
 
 ALLOWED_HOSTS = [
