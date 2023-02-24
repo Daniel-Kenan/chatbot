@@ -3,8 +3,10 @@ import websockets
 from httpserverbot import assistant
 # python -m websockets ws://localhost:8765
 from time import time
-PORT = 8765
+import os
 
+PORT = int(os.environ['PORT'])
+HOST = "localhost"
 ALLOWED_HOSTS = [
    "http://localhost:3000/",
    "http://localhost:3000",
@@ -63,6 +65,6 @@ async def handler(websocket, path):
   
 
 print(f"I am RUNNING ON PORT : {PORT}")
-start_server = websockets.serve(handler, "localhost", PORT,origins=ALLOWED_HOSTS)
+start_server = websockets.serve(handler, host = HOST, port = PORT,origins=ALLOWED_HOSTS)
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()

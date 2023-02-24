@@ -1,11 +1,15 @@
-FROM python:3.6.13
+FROM alpine:latest
+# FROM python:3.6.13
 
-WORKDIR /app
+RUN apk add --no-cache --update python3 py3-pip bash
+ADD ./requirements.txt /tmp/requirements.txt
 
-COPY . /app
+RUN pip3 install --no-cache-dir -q -r /tmp/requirements.txt
 
+ADD . /opt/webapp/
+WORKDIR /opt/webapp
 
-RUN pip install websockets
+RUN adduser -D myuser
+USER myuser
 
-EXPOSE 8765
-CMD python ./prototype.py 
+CMD python gunicorn --bind 0.0.0.0:$PORT wsgi 
