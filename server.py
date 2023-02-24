@@ -5,7 +5,7 @@ from httpserverbot import assistant
 from time import time
 import os
 
-try:os.environ["PORT"]
+try:PORT = os.environ["PORT"]
 except: PORT = 8765
 HOST = '0.0.0.0'
 
@@ -70,7 +70,7 @@ async def handler(websocket, path):
     except websockets.ConnectionClosedOK : break
   
 
-print(f"I am RUNNING ON PORT : {PORT}")
+print(f"running on => {HOST}:{PORT}")
 start_server = websockets.serve(handler, host = HOST, port = PORT,origins=ALLOWED_HOSTS)
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
