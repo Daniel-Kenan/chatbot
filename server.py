@@ -5,9 +5,14 @@ from httpserverbot import assistant
 from time import time
 import os
 
-PORT = int(os.environ['PORT'])
-HOST = "localhost"
+PORT = 8765
+HOST = '0.0.0.0'
+
 ALLOWED_HOSTS = [
+   "https://strawberrysoft.co.za",
+   "http://www.strawberrysoft.co.za",
+   "https://www.strawberrysoft.co.za",
+   "https://www.strawberrysoft.co.za/"
    "http://localhost:3000/",
    "http://localhost:3000",
    "localhost:3000",

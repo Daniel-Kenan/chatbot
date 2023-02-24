@@ -1,15 +1,10 @@
-FROM alpine:latest
-# FROM python:3.6.13
+FROM python:3.6.8-alpine3.8
 
-RUN apk add --no-cache --update python3 py3-pip bash
-ADD ./requirements.txt /tmp/requirements.txt
+RUN pip install tensorflow
+RUN pip install numpy
+RUN pip install websockets
+RUN pip install nltk
 
-RUN pip3 install --no-cache-dir -q -r /tmp/requirements.txt
+COPY . .
 
-ADD . /opt/webapp/
-WORKDIR /opt/webapp
-
-RUN adduser -D myuser
-USER myuser
-
-CMD python gunicorn --bind 0.0.0.0:$PORT wsgi 
+CMD ["python", "server.py"]
