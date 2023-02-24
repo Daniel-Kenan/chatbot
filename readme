@@ -34,3 +34,10 @@ CMD python ./server.py
 # # Run the app.  CMD is required to run on Heroku
 # # $PORT is set by Heroku			
 # CMD gunicorn --bind 0.0.0.0:$PORT wsgi 
+
+
+git reset --hard
+git pull
+docker build -t chatbot:1.0 .
+docker run --name run-chatbot --publish 32080:8765 --rm \
+    chatbot:1.0
