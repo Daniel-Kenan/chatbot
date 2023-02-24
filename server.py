@@ -1,10 +1,12 @@
 import asyncio
 import websockets
 from httpserverbot import assistant
+import socket
 # python -m websockets ws://localhost:8765
 from time import time
 import os
-
+hostname = socket.gethostname()
+IPADDR = socket.gethostbyname(hostname)
 try:PORT = os.environ["PORT"]
 except: PORT = 8765
 HOST = '0.0.0.0'
@@ -69,8 +71,7 @@ async def handler(websocket, path):
                                    
     except websockets.ConnectionClosedOK : break
   
-
-print(f"running on => {HOST}:{PORT}")
+print(f"running on => {IPADDR}:{PORT}")
 start_server = websockets.serve(handler, host = HOST, port = PORT,origins=ALLOWED_HOSTS)
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
