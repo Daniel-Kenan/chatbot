@@ -15,18 +15,12 @@ ALLOWED_HOSTS = [
    "http://www.strawberrysoft.co.za",
    "https://www.strawberrysoft.co.za",
    "https://www.strawberrysoft.co.za/"
-   "http://localhost:3000/",
-   "http://localhost:3000",
-   "localhost:3000",
-   "http://localhost:5500/",
-   "http://localhost:5500",
-   "localhost:5500",
    "http://127.0.0.1:5500/",
    "http://127.0.0.1:5500",
    "127.0.0.1:5500"
    ]
 
-agents = ["agent"]
+agents = ["220207445","222197137"]
 chatrooms = {}
 
 user = []

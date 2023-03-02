@@ -5,6 +5,11 @@ _current_dir = os.path.dirname(os.path.realpath(__file__))
 assistant = GenericAssistant( model_name="Luffy")
 model = os.path.join(_current_dir,"models",assistant.model_name)
 
+
+# def func():
+#     print('intetion ruuning')
+
+# mappings = {'greetings',func}
 try: 
     try:
       if (sys.argv[1]) == "--shell" : None
@@ -20,6 +25,7 @@ try:
        else:
            response = assistant.request(message)
            print(response)
+           print(assistant)
 except KeyboardInterrupt: exit()
 except:
     print("training the model")

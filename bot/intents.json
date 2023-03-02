@@ -26,7 +26,7 @@
       },
       {
         "group": "product_info",
-        "patterns": ["Tell me about your products", "What software do you offer?", "What kind of products do you have?"],
+        "patterns": ["Tell me about your products", "What software do you offer?", "What kind of products do you have?","can you help me with the services you offer"],
         "responses": ["We offer a range of software solutions that can help you with various business needs. Can you tell me more about what you're looking for?"],
         "context_set": ""
       },
@@ -68,10 +68,32 @@
     },
     {
         "group": "vision",
-        "patterns": ["What is the company's vision?", "What does the company aspire to achieve?", "What is the long-term goal of the company?"],
+        "patterns": ["What is the company's vision?","Can you tell me about the company's mission?", "What does the company aspire to achieve?", "What is the long-term goal of the company?"],
         "responses": ["Our vision is to become a leading software company in the industry by providing cutting-edge solutions to our clients."],
         "context_set": ""
-    }
+    },
+    {
+      "group": "greeting_2",
+      "patterns": ["How are you?","How are you feeling?", "are you good", "How are you getting on","How's everything"],
+      "responses": [
+    "I'm just a machine, so I don't have feelings, but I'm here and ready to help you!",
+    "I'm functioning as expected. How can I assist you today?",
+    "Thanks for asking! I'm programmed to help you, so let me know what you need.",
+    "I'm doing well, thank you. How about you? Is there anything you would like to talk about?",
+    "I'm always ready to help you, no matter how I'm feeling. What can I do for you?",
+    "As an AI language model, I don't have emotions, but I'm here to assist you with any queries you have",
+    "I'm here to help you 24/7. Is there anything you would like me to assist with?",
+    "I'm just a computer program, so I don't have feelings, but I'm here to answer your questions and provide any assistance you need.",
+    "I don't have feelings, but I'm ready and available to assist you with anything you need."
+    ],
+      "context_set": ""
+  },
+  {
+    "group": "work_with_us",
+    "patterns": ["work with us"],
+    "responses": ["what g"],
+    "context_set": ""
+}
     ]
   }
   
