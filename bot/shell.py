@@ -25,7 +25,7 @@ try:
        else:
            response = assistant.request(message)
            print(response)
-           print(assistant)
+        #    print(assistant)
 except KeyboardInterrupt: exit()
 except:
     print("training the model")

@@ -16,9 +16,9 @@ from tensorflow.keras.layers import Dense, Dropout
 from tensorflow.keras.optimizers import SGD
 from tensorflow.keras.models import load_model
 
-nltk.download('punkt', quiet=True)
-nltk.download('wordnet', quiet=True)
-nltk.download('omw-1.4')
+# nltk.download('punkt', quiet=True)
+# nltk.download('wordnet', quiet=True)
+# nltk.download('omw-1.4')
 
 class IAssistant(metaclass=ABCMeta):
 
