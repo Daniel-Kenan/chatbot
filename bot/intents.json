@@ -2266,7 +2266,7 @@
     ],
       "context_set": ""
     },
-    {
+    {  
       "group": "mission",
       "patterns": ["What is the company's mission?", "Can you tell me about the company's mission?", "What does the company aim to do?",
                     "What is the main goal of the company?",
