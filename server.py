@@ -21,7 +21,7 @@ ALLOWED_HOSTS = [
    "https://employease-production.up.railway.app/",
    "http://employease-production.up.railway.app/"
 "http://employease-production.up.railway.app",
-"https://employease-production.up.railway.app/"
+"https://employease-production.up.railway.app/","*"
    ]
 
 agents = ["220207445","222197137"]
