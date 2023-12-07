@@ -69,6 +69,6 @@ async def handler(websocket, path):
     except websockets.ConnectionClosedOK : break  
 
 print(f"running on => {IPADDR}:{PORT}")
-start_server = websockets.serve(handler, host = HOST, port = PORT,origins="*")
+start_server = websockets.serve(handler, host = HOST, port = PORT)
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
