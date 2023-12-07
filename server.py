@@ -17,7 +17,11 @@ ALLOWED_HOSTS = [
    "https://www.strawberrysoft.co.za/"
    "http://127.0.0.1:5500/",
    "http://127.0.0.1:5500",
-   "127.0.0.1:5500"
+   "127.0.0.1:5500",
+   "https://employease-production.up.railway.app/",
+   "http://employease-production.up.railway.app/"
+"http://employease-production.up.railway.app",
+"https://employease-production.up.railway.app/"
    ]
 
 agents = ["220207445","222197137"]
